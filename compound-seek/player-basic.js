@@ -1,7 +1,11 @@
 const config = {
-  "key": "9042ce90-9b8f-43f2-bf1a-5bb20bf30655",
+  "key": "YOUR-KEY",
   logs: {
       level: "debug"
+  },
+  location: {
+    ui: "bitmovinplayer-ui.js",
+    ui_css: "bitmovinplayer-ui.css"
   },
 };
 const container = document.getElementById('my-player');
@@ -20,20 +24,20 @@ player.load(source).then(
     console.log('[info] player.load() resolved - success');
 //    // remove default handler
 //    player.off(bitmovin.player.PlayerEvent.Seek);
-    endOfRange = player.getDuration();
+//    endOfRange = player.getDuration();
 //    console.log(`---end:${endOfRange}, seekThreshold:${seekThreshold}`);
 //    player.on(bitmovin.player.PlayerEvent.Seek, function(event) {
 //      if (event.seekTarget > seekThreshold * endOfRange)
 //        compoundSeek(event);
 //      else player.seek(event.seekTarget);
 //    });
-    player.on(bitmovin.player.PlayerEvent.Seek, function(event) {
-      console.log("---seek:", event);
-      if (event.seekTarget > seekThreshold * endOfRange) {
-        console.log("---[!] call compoundSeek()");
-        compoundSeek(event);
-      }
-    });
+//    player.on(bitmovin.player.PlayerEvent.Seek, function(event) {
+//      console.log("---seek:", event);
+//      if (event.seekTarget > seekThreshold * endOfRange) {
+//        console.log("---[!] call compoundSeek()");
+//        compoundSeek(event);
+//      }
+//    });
   },
   function (reason) {
     console.log('[!] player.load() resolved - fail');
